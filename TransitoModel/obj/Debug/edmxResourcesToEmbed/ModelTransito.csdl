@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TransitoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CLASEVEHICULO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VEHICULO" Relationship="Self.FK_VEHICULO_CLASEVEHICULO" FromRole="CLASEVEHICULO" ToRole="VEHICULO" />
+  </EntityType>
+  <EntityType Name="FACTURA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NUMERO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA" Type="DateTime" Precision="3" />
+    <Property Name="ID_VEHICULO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OBSERVACIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VEHICULO" Relationship="Self.FK_FACTURA_VEHICULO" FromRole="FACTURA" ToRole="VEHICULO" />
+    <NavigationProperty Name="TRAMITE" Relationship="Self.FACTURA_TRAMITE" FromRole="FACTURA" ToRole="TRAMITE" />
+  </EntityType>
+  <EntityType Name="LINEA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_MARCA" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="MARCA" Relationship="Self.FK_LINEA_MARCA" FromRole="LINEA" ToRole="MARCA" />
+    <NavigationProperty Name="VEHICULO" Relationship="Self.FK_VEHICULO_LINEA" FromRole="LINEA" ToRole="VEHICULO" />
+  </EntityType>
+  <EntityType Name="MARCA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LINEA" Relationship="Self.FK_LINEA_MARCA" FromRole="MARCA" ToRole="LINEA" />
+  </EntityType>
+  <EntityType Name="PROPIETARIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NUMEROIDENTIFICACION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="APELLIDOS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TELEFONO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CORREOELECTRONICO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VEHICULO" Relationship="Self.PROPIETARIO_VEHICULO" FromRole="PROPIETARIO" ToRole="VEHICULO" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TIPOSERVICIO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="VEHICULO" Relationship="Self.FK_VEHICULO_TIPOSERVICIO" FromRole="TIPOSERVICIO" ToRole="VEHICULO" />
+  </EntityType>
+  <EntityType Name="TRAMITE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="VALOR" Type="Double" />
+    <NavigationProperty Name="FACTURA" Relationship="Self.FACTURA_TRAMITE" FromRole="TRAMITE" ToRole="FACTURA" />
+  </EntityType>
+  <EntityType Name="VEHICULO">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PLACA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="ID_LINEA" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="MODELO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NUMEROMOTOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="COLOR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_CLASE" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="ID_TIPOSERVICIO" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="CLASEVEHICULO" Relationship="Self.FK_VEHICULO_CLASEVEHICULO" FromRole="VEHICULO" ToRole="CLASEVEHICULO" />
+    <NavigationProperty Name="FACTURA" Relationship="Self.FK_FACTURA_VEHICULO" FromRole="VEHICULO" ToRole="FACTURA" />
+    <NavigationProperty Name="LINEA" Relationship="Self.FK_VEHICULO_LINEA" FromRole="VEHICULO" ToRole="LINEA" />
+    <NavigationProperty Name="TIPOSERVICIO" Relationship="Self.FK_VEHICULO_TIPOSERVICIO" FromRole="VEHICULO" ToRole="TIPOSERVICIO" />
+    <NavigationProperty Name="PROPIETARIO" Relationship="Self.PROPIETARIO_VEHICULO" FromRole="VEHICULO" ToRole="PROPIETARIO" />
+  </EntityType>
+  <Association Name="FK_VEHICULO_CLASEVEHICULO">
+    <End Role="CLASEVEHICULO" Type="Self.CLASEVEHICULO" Multiplicity="0..1" />
+    <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLASEVEHICULO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VEHICULO">
+        <PropertyRef Name="ID_CLASE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FACTURA_VEHICULO">
+    <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="0..1" />
+    <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VEHICULO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FACTURA">
+        <PropertyRef Name="ID_VEHICULO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LINEA_MARCA">
+    <End Role="MARCA" Type="Self.MARCA" Multiplicity="0..1" />
+    <End Role="LINEA" Type="Self.LINEA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARCA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LINEA">
+        <PropertyRef Name="ID_MARCA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEHICULO_LINEA">
+    <End Role="LINEA" Type="Self.LINEA" Multiplicity="0..1" />
+    <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LINEA">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VEHICULO">
+        <PropertyRef Name="ID_LINEA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VEHICULO_TIPOSERVICIO">
+    <End Role="TIPOSERVICIO" Type="Self.TIPOSERVICIO" Multiplicity="0..1" />
+    <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPOSERVICIO">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="VEHICULO">
+        <PropertyRef Name="ID_TIPOSERVICIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FACTURA_TRAMITE">
+    <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
+    <End Role="TRAMITE" Type="Self.TRAMITE" Multiplicity="*" />
+  </Association>
+  <Association Name="PROPIETARIO_VEHICULO">
+    <End Role="PROPIETARIO" Type="Self.PROPIETARIO" Multiplicity="*" />
+    <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="PRUEBA1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CLASEVEHICULO" EntityType="Self.CLASEVEHICULO" />
+    <EntitySet Name="FACTURA" EntityType="Self.FACTURA" />
+    <EntitySet Name="LINEA" EntityType="Self.LINEA" />
+    <EntitySet Name="MARCA" EntityType="Self.MARCA" />
+    <EntitySet Name="PROPIETARIO" EntityType="Self.PROPIETARIO" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="TIPOSERVICIO" EntityType="Self.TIPOSERVICIO" />
+    <EntitySet Name="TRAMITE" EntityType="Self.TRAMITE" />
+    <EntitySet Name="VEHICULO" EntityType="Self.VEHICULO" />
+    <AssociationSet Name="FK_VEHICULO_CLASEVEHICULO" Association="Self.FK_VEHICULO_CLASEVEHICULO">
+      <End Role="CLASEVEHICULO" EntitySet="CLASEVEHICULO" />
+      <End Role="VEHICULO" EntitySet="VEHICULO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FACTURA_VEHICULO" Association="Self.FK_FACTURA_VEHICULO">
+      <End Role="VEHICULO" EntitySet="VEHICULO" />
+      <End Role="FACTURA" EntitySet="FACTURA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LINEA_MARCA" Association="Self.FK_LINEA_MARCA">
+      <End Role="MARCA" EntitySet="MARCA" />
+      <End Role="LINEA" EntitySet="LINEA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEHICULO_LINEA" Association="Self.FK_VEHICULO_LINEA">
+      <End Role="LINEA" EntitySet="LINEA" />
+      <End Role="VEHICULO" EntitySet="VEHICULO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VEHICULO_TIPOSERVICIO" Association="Self.FK_VEHICULO_TIPOSERVICIO">
+      <End Role="TIPOSERVICIO" EntitySet="TIPOSERVICIO" />
+      <End Role="VEHICULO" EntitySet="VEHICULO" />
+    </AssociationSet>
+    <AssociationSet Name="FACTURA_TRAMITE" Association="Self.FACTURA_TRAMITE">
+      <End Role="FACTURA" EntitySet="FACTURA" />
+      <End Role="TRAMITE" EntitySet="TRAMITE" />
+    </AssociationSet>
+    <AssociationSet Name="PROPIETARIO_VEHICULO" Association="Self.PROPIETARIO_VEHICULO">
+      <End Role="PROPIETARIO" EntitySet="PROPIETARIO" />
+      <End Role="VEHICULO" EntitySet="VEHICULO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

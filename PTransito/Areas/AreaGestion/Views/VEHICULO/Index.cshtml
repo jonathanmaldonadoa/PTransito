@@ -1,0 +1,69 @@
+﻿@model IEnumerable<TransitoModel.VEHICULO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PLACA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MODELO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NUMEROMOTOR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COLOR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLASEVEHICULO.DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LINEA.DESCRIPCION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIPOSERVICIO.DESCRIPCION)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PLACA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MODELO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NUMEROMOTOR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COLOR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLASEVEHICULO.DESCRIPCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LINEA.DESCRIPCION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TIPOSERVICIO.DESCRIPCION)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

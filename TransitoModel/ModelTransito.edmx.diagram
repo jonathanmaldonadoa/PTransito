@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6e6ff5fce4a24a7694c97758f9774104" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="TransitoModel.CLASEVEHICULO" Width="2.5" PointX="1.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransitoModel.FACTURA" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransitoModel.LINEA" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransitoModel.MARCA" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransitoModel.PROPIETARIO" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransitoModel.sysdiagrams" Width="1.5" PointX="7.375" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransitoModel.TIPOSERVICIO" Width="1.5" PointX="6.875" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransitoModel.TRAMITE" Width="1.5" PointX="9.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TransitoModel.VEHICULO" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="TransitoModel.FK_VEHICULO_CLASEVEHICULO" ManuallyRouted="false" />
+        <AssociationConnector Association="TransitoModel.FK_FACTURA_VEHICULO" ManuallyRouted="false" />
+        <AssociationConnector Association="TransitoModel.FK_LINEA_MARCA" ManuallyRouted="false" />
+        <AssociationConnector Association="TransitoModel.FK_VEHICULO_LINEA" ManuallyRouted="false" />
+        <AssociationConnector Association="TransitoModel.FK_VEHICULO_TIPOSERVICIO" ManuallyRouted="false" />
+        <AssociationConnector Association="TransitoModel.FACTURA_TRAMITE" ManuallyRouted="false" />
+        <AssociationConnector Association="TransitoModel.PROPIETARIO_VEHICULO" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

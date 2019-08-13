@@ -1,0 +1,11 @@
+C:\Users\FnpvSistemas01\source\repos\PTransito\TransitoModel\bin\Debug\TransitoModel.dll.config
+C:\Users\FnpvSistemas01\source\repos\PTransito\TransitoModel\bin\Debug\TransitoModel.dll
+C:\Users\FnpvSistemas01\source\repos\PTransito\TransitoModel\bin\Debug\TransitoModel.pdb
+C:\Users\FnpvSistemas01\source\repos\PTransito\TransitoModel\bin\Debug\EntityFramework.dll
+C:\Users\FnpvSistemas01\source\repos\PTransito\TransitoModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\FnpvSistemas01\source\repos\PTransito\TransitoModel\bin\Debug\EntityFramework.xml
+C:\Users\FnpvSistemas01\source\repos\PTransito\TransitoModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\FnpvSistemas01\source\repos\PTransito\TransitoModel\obj\Debug\TransitoModel.csproj.CoreCompileInputs.cache
+C:\Users\FnpvSistemas01\source\repos\PTransito\TransitoModel\obj\Debug\TransitoModel.csproj.CopyComplete
+C:\Users\FnpvSistemas01\source\repos\PTransito\TransitoModel\obj\Debug\TransitoModel.dll
+C:\Users\FnpvSistemas01\source\repos\PTransito\TransitoModel\obj\Debug\TransitoModel.pdb
