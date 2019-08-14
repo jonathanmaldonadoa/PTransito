@@ -239,6 +239,10 @@
       <Project>{d336b5cc-11c5-4c95-8efd-6e0ecd700224}</Project>
       <Name>TransitoModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TransitoServicio\TransitoServicio.csproj">
+      <Project>{226F1695-C1EB-48AD-9D61-18886275B775}</Project>
+      <Name>TransitoServicio</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,2 +1,15 @@
 D:\mvcPruebas\PTransito\TransitoServicio\obj\Debug\TransitoServicio.csprojAssemblyReference.cache
 D:\mvcPruebas\PTransito\TransitoServicio\obj\Debug\TransitoServicio.csproj.CoreCompileInputs.cache
+D:\mvcPruebas\PTransito\TransitoServicio\bin\Debug\TransitoServicio.dll.config
+D:\mvcPruebas\PTransito\TransitoServicio\bin\Debug\TransitoServicio.dll
+D:\mvcPruebas\PTransito\TransitoServicio\bin\Debug\TransitoServicio.pdb
+D:\mvcPruebas\PTransito\TransitoServicio\bin\Debug\EntityFramework.dll
+D:\mvcPruebas\PTransito\TransitoServicio\bin\Debug\EntityFramework.SqlServer.dll
+D:\mvcPruebas\PTransito\TransitoServicio\bin\Debug\TransitoModel.dll
+D:\mvcPruebas\PTransito\TransitoServicio\bin\Debug\TransitoModel.pdb
+D:\mvcPruebas\PTransito\TransitoServicio\bin\Debug\TransitoModel.dll.config
+D:\mvcPruebas\PTransito\TransitoServicio\bin\Debug\EntityFramework.xml
+D:\mvcPruebas\PTransito\TransitoServicio\bin\Debug\EntityFramework.SqlServer.xml
+D:\mvcPruebas\PTransito\TransitoServicio\obj\Debug\TransitoServicio.csproj.CopyComplete
+D:\mvcPruebas\PTransito\TransitoServicio\obj\Debug\TransitoServicio.dll
+D:\mvcPruebas\PTransito\TransitoServicio\obj\Debug\TransitoServicio.pdb

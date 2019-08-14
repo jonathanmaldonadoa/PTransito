@@ -38,7 +38,8 @@
             @Html.HiddenFor(x => x.VEHICULO_ID)
 
             <div class="form-group">
-                ASOCIAR PERSONA AL VEHICULO            <div class="col-md-10">
+                ASOCIAR PERSONA AL VEHICULO           
+                <div class="col-md-10">
                     @Html.DropDownListFor(model => model.PROPIETARIO_LIST.ID, (SelectList)ViewBag.ID, String.Empty, new { @class = "form-control" })
                 </div>
             </div>
@@ -49,7 +50,7 @@
             </div>
         }
 
-
+        <h3>Propietarios Vinculados</h3>
         <table class="table">
             <tr>
                 <th>
@@ -70,30 +71,36 @@
                 <th>
                     @Html.DisplayNameFor(model => model.PROPIETARIO.FirstOrDefault().TELEFONO)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PROPIETARIO.FirstOrDefault().PROPIETARIO_VEHICULO.FirstOrDefault().CREA_FECHA)
+                </th>
             </tr>
 
             @foreach (var item in Model.PROPIETARIO)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NUMEROIDENTIFICACION)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NOMBRES)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.APELLIDOS)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CORREOELECTRONICO)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DIRECCION)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TELEFONO)
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NUMEROIDENTIFICACION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOMBRES)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.APELLIDOS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CORREOELECTRONICO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DIRECCION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TELEFONO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPIETARIO_VEHICULO.FirstOrDefault().CREA_FECHA)
+                </td>
+            </tr>
             }
 
         </table>

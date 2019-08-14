@@ -178,3 +178,6 @@ D:\mvcPruebas\PTransito\PTransito\obj\Debug\PTransito.csproj.CoreCompileInputs.c
 D:\mvcPruebas\PTransito\PTransito\obj\Debug\PTransito.csproj.CopyComplete
 D:\mvcPruebas\PTransito\PTransito\obj\Debug\PTransito.dll
 D:\mvcPruebas\PTransito\PTransito\obj\Debug\PTransito.pdb
+D:\mvcPruebas\PTransito\PTransito\bin\TransitoServicio.dll
+D:\mvcPruebas\PTransito\PTransito\bin\TransitoServicio.pdb
+D:\mvcPruebas\PTransito\PTransito\bin\TransitoServicio.dll.config
