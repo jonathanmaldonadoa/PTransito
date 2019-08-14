@@ -14,4 +14,16 @@ namespace TransitoModel.ModelAux
         public IEnumerable<PROPIETARIO> PROPIETARIO { get; set; }
 
     }
+
+    [NotMapped]
+    public class ModFactura
+    {
+        public string PLACA { get; set; }
+        public string DOCUMENTO { get; set; }
+        public FACTURA FACTURA { get; set; }
+        public TRAMITE TRAMITE { get; set; }
+        public IEnumerable<FACTURA_TRAMITE> FACTURA_TRAMITE { get; set; }
+        
+    }
+
 }

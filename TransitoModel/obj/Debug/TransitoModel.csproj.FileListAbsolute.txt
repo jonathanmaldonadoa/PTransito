@@ -16,8 +16,8 @@ D:\mvcPruebas\PTransito\TransitoModel\bin\Debug\EntityFramework.dll
 D:\mvcPruebas\PTransito\TransitoModel\bin\Debug\EntityFramework.SqlServer.dll
 D:\mvcPruebas\PTransito\TransitoModel\bin\Debug\EntityFramework.xml
 D:\mvcPruebas\PTransito\TransitoModel\bin\Debug\EntityFramework.SqlServer.xml
-D:\mvcPruebas\PTransito\TransitoModel\obj\Debug\TransitoModel.csprojAssemblyReference.cache
 D:\mvcPruebas\PTransito\TransitoModel\obj\Debug\TransitoModel.csproj.CoreCompileInputs.cache
 D:\mvcPruebas\PTransito\TransitoModel\obj\Debug\TransitoModel.csproj.CopyComplete
 D:\mvcPruebas\PTransito\TransitoModel\obj\Debug\TransitoModel.dll
 D:\mvcPruebas\PTransito\TransitoModel\obj\Debug\TransitoModel.pdb
+D:\mvcPruebas\PTransito\TransitoModel\obj\Debug\TransitoModel.csprojAssemblyReference.cache

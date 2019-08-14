@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="da8bf352acd0493c9a8441011593292c" Name="Diagram1">
+      <Diagram DiagramId="da8bf352acd0493c9a8441011593292c" Name="Diagram1" ZoomLevel="66">
         <EntityTypeShape EntityType="PRUEBA1Model.CLASEVEHICULO" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PRUEBA1Model.FACTURA" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PRUEBA1Model.FACTURA_TRAMITE" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PRUEBA1Model.LINEA" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PRUEBA1Model.MARCA" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="PRUEBA1Model.PROPIETARIO" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA1Model.PROPIETARIO" Width="1.5" PointX="10.75" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="PRUEBA1Model.PROPIETARIO_VEHICULO" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="PRUEBA1Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PRUEBA1Model.TIPOSERVICIO" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="PRUEBA1Model.TRAMITE" Width="1.5" PointX="7.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA1Model.TIPOSERVICIO" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA1Model.TRAMITE" Width="1.5" PointX="12.25" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PRUEBA1Model.VEHICULO" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
         <AssociationConnector Association="PRUEBA1Model.FK_VEHICULO_CLASEVEHICULO" ManuallyRouted="false" />
         <AssociationConnector Association="PRUEBA1Model.FK_FACTURA_TRAMITE_FACTURA" ManuallyRouted="false" />

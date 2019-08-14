@@ -132,6 +132,7 @@
     <Compile Include="Areas\AreaConfiguracion\Controllers\MARCAController.cs" />
     <Compile Include="Areas\AreaConfiguracion\Controllers\TIPOSERVICIOController.cs" />
     <Compile Include="Areas\AreaGestion\AreaGestionAreaRegistration.cs" />
+    <Compile Include="Areas\AreaGestion\Controllers\FACTURAController.cs" />
     <Compile Include="Areas\AreaGestion\Controllers\PROPIETARIOController.cs" />
     <Compile Include="Areas\AreaGestion\Controllers\PROPIETARIOVEHICULOController.cs" />
     <Compile Include="Areas\AreaGestion\Controllers\VEHICULOController.cs" />
@@ -189,6 +190,11 @@
     <Content Include="Areas\AreaGestion\Views\PROPIETARIO\Edit.cshtml" />
     <Content Include="Areas\AreaGestion\Views\PROPIETARIO\Index.cshtml" />
     <Content Include="Areas\AreaGestion\Views\PROPIETARIOVEHICULO\Index.cshtml" />
+    <Content Include="Areas\AreaGestion\Views\FACTURA\Create.cshtml" />
+    <Content Include="Areas\AreaGestion\Views\FACTURA\Delete.cshtml" />
+    <Content Include="Areas\AreaGestion\Views\FACTURA\Details.cshtml" />
+    <Content Include="Areas\AreaGestion\Views\FACTURA\Edit.cshtml" />
+    <Content Include="Areas\AreaGestion\Views\FACTURA\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

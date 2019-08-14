@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SERVICIOS_ASOCIAR.cs" />
+    <Compile Include="SERVICIO_FACTURA.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TransitoModel\TransitoModel.csproj">

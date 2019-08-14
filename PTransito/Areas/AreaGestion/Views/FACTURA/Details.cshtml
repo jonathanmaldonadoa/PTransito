@@ -1,0 +1,51 @@
+﻿@model TransitoModel.FACTURA
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FACTURA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NUMERO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMERO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OBSERVACIONES)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OBSERVACIONES)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VEHICULO.PLACA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VEHICULO.PLACA)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
