@@ -27,9 +27,11 @@ namespace TransitoModel
     
         public virtual DbSet<CLASEVEHICULO> CLASEVEHICULO { get; set; }
         public virtual DbSet<FACTURA> FACTURA { get; set; }
+        public virtual DbSet<FACTURA_TRAMITE> FACTURA_TRAMITE { get; set; }
         public virtual DbSet<LINEA> LINEA { get; set; }
         public virtual DbSet<MARCA> MARCA { get; set; }
         public virtual DbSet<PROPIETARIO> PROPIETARIO { get; set; }
+        public virtual DbSet<PROPIETARIO_VEHICULO> PROPIETARIO_VEHICULO { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TIPOSERVICIO> TIPOSERVICIO { get; set; }
         public virtual DbSet<TRAMITE> TRAMITE { get; set; }

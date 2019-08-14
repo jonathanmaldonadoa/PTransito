@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="TransitoModelStoreContainer" CdmEntityContainer="PRUEBA1Entities">
+  <EntityContainerMapping StorageEntityContainer="PRUEBA1ModelStoreContainer" CdmEntityContainer="PRUEBA1Entities1">
     <EntitySetMapping Name="CLASEVEHICULO">
-      <EntityTypeMapping TypeName="TransitoModel.CLASEVEHICULO">
+      <EntityTypeMapping TypeName="PRUEBA1Model.CLASEVEHICULO">
         <MappingFragment StoreEntitySet="CLASEVEHICULO">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -10,7 +10,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="FACTURA">
-      <EntityTypeMapping TypeName="TransitoModel.FACTURA">
+      <EntityTypeMapping TypeName="PRUEBA1Model.FACTURA">
         <MappingFragment StoreEntitySet="FACTURA">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
@@ -20,8 +20,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="FACTURA_TRAMITE">
+      <EntityTypeMapping TypeName="PRUEBA1Model.FACTURA_TRAMITE">
+        <MappingFragment StoreEntitySet="FACTURA_TRAMITE">
+          <ScalarProperty Name="ID_FACTURA" ColumnName="ID_FACTURA" />
+          <ScalarProperty Name="ID_TRAMITE" ColumnName="ID_TRAMITE" />
+          <ScalarProperty Name="CREA_FECHA" ColumnName="CREA_FECHA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="LINEA">
-      <EntityTypeMapping TypeName="TransitoModel.LINEA">
+      <EntityTypeMapping TypeName="PRUEBA1Model.LINEA">
         <MappingFragment StoreEntitySet="LINEA">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -30,7 +39,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MARCA">
-      <EntityTypeMapping TypeName="TransitoModel.MARCA">
+      <EntityTypeMapping TypeName="PRUEBA1Model.MARCA">
         <MappingFragment StoreEntitySet="MARCA">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -38,7 +47,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PROPIETARIO">
-      <EntityTypeMapping TypeName="TransitoModel.PROPIETARIO">
+      <EntityTypeMapping TypeName="PRUEBA1Model.PROPIETARIO">
         <MappingFragment StoreEntitySet="PROPIETARIO">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="NUMEROIDENTIFICACION" ColumnName="NUMEROIDENTIFICACION" />
@@ -50,8 +59,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="PROPIETARIO_VEHICULO">
+      <EntityTypeMapping TypeName="PRUEBA1Model.PROPIETARIO_VEHICULO">
+        <MappingFragment StoreEntitySet="PROPIETARIO_VEHICULO">
+          <ScalarProperty Name="ID_PROPIETARIO" ColumnName="ID_PROPIETARIO" />
+          <ScalarProperty Name="ID_VEHICULO" ColumnName="ID_VEHICULO" />
+          <ScalarProperty Name="CREA_FECHA" ColumnName="CREA_FECHA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="TransitoModel.sysdiagrams">
+      <EntityTypeMapping TypeName="PRUEBA1Model.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -62,7 +80,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TIPOSERVICIO">
-      <EntityTypeMapping TypeName="TransitoModel.TIPOSERVICIO">
+      <EntityTypeMapping TypeName="PRUEBA1Model.TIPOSERVICIO">
         <MappingFragment StoreEntitySet="TIPOSERVICIO">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -70,7 +88,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TRAMITE">
-      <EntityTypeMapping TypeName="TransitoModel.TRAMITE">
+      <EntityTypeMapping TypeName="PRUEBA1Model.TRAMITE">
         <MappingFragment StoreEntitySet="TRAMITE">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -79,7 +97,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="VEHICULO">
-      <EntityTypeMapping TypeName="TransitoModel.VEHICULO">
+      <EntityTypeMapping TypeName="PRUEBA1Model.VEHICULO">
         <MappingFragment StoreEntitySet="VEHICULO">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="PLACA" ColumnName="PLACA" />
@@ -92,21 +110,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="FACTURA_TRAMITE" TypeName="TransitoModel.FACTURA_TRAMITE" StoreEntitySet="FACTURA_TRAMITE">
-      <EndProperty Name="FACTURA">
-        <ScalarProperty Name="ID" ColumnName="ID_FACTURA" />
-      </EndProperty>
-      <EndProperty Name="TRAMITE">
-        <ScalarProperty Name="ID" ColumnName="ID_TRAMITE" />
-      </EndProperty>
-    </AssociationSetMapping>
-    <AssociationSetMapping Name="PROPIETARIO_VEHICULO" TypeName="TransitoModel.PROPIETARIO_VEHICULO" StoreEntitySet="PROPIETARIO_VEHICULO">
-      <EndProperty Name="PROPIETARIO">
-        <ScalarProperty Name="ID" ColumnName="ID_PROPIETARIO" />
-      </EndProperty>
-      <EndProperty Name="VEHICULO">
-        <ScalarProperty Name="ID" ColumnName="ID_VEHICULO" />
-      </EndProperty>
-    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

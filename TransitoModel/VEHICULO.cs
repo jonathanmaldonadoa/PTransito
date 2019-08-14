@@ -18,7 +18,7 @@ namespace TransitoModel
         public VEHICULO()
         {
             this.FACTURA = new HashSet<FACTURA>();
-            this.PROPIETARIO = new HashSet<PROPIETARIO>();
+            this.PROPIETARIO_VEHICULO = new HashSet<PROPIETARIO_VEHICULO>();
         }
     
         public decimal ID { get; set; }
@@ -34,8 +34,8 @@ namespace TransitoModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FACTURA> FACTURA { get; set; }
         public virtual LINEA LINEA { get; set; }
-        public virtual TIPOSERVICIO TIPOSERVICIO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PROPIETARIO> PROPIETARIO { get; set; }
+        public virtual ICollection<PROPIETARIO_VEHICULO> PROPIETARIO_VEHICULO { get; set; }
+        public virtual TIPOSERVICIO TIPOSERVICIO { get; set; }
     }
 }

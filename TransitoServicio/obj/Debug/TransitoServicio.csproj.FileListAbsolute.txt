@@ -1,0 +1,2 @@
+D:\mvcPruebas\PTransito\TransitoServicio\obj\Debug\TransitoServicio.csprojAssemblyReference.cache
+D:\mvcPruebas\PTransito\TransitoServicio\obj\Debug\TransitoServicio.csproj.CoreCompileInputs.cache

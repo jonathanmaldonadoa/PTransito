@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="TransitoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="PRUEBA1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="CLASEVEHICULO">
     <Key>
       <PropertyRef Name="ID" />
@@ -24,6 +24,7 @@
     </Key>
     <Property Name="ID_FACTURA" Type="numeric" Precision="18" Scale="0" Nullable="false" />
     <Property Name="ID_TRAMITE" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CREA_FECHA" Type="datetime" />
   </EntityType>
   <EntityType Name="LINEA">
     <Key>
@@ -59,6 +60,7 @@
     </Key>
     <Property Name="ID_PROPIETARIO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
     <Property Name="ID_VEHICULO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="CREA_FECHA" Type="datetime" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -206,7 +208,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="TransitoModelStoreContainer">
+  <EntityContainer Name="PRUEBA1ModelStoreContainer">
     <EntitySet Name="CLASEVEHICULO" EntityType="Self.CLASEVEHICULO" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FACTURA" EntityType="Self.FACTURA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="FACTURA_TRAMITE" EntityType="Self.FACTURA_TRAMITE" Schema="dbo" store:Type="Tables" />

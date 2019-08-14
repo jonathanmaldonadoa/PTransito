@@ -17,7 +17,7 @@ namespace TransitoModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PROPIETARIO()
         {
-            this.VEHICULO = new HashSet<VEHICULO>();
+            this.PROPIETARIO_VEHICULO = new HashSet<PROPIETARIO_VEHICULO>();
         }
     
         public decimal ID { get; set; }
@@ -29,6 +29,6 @@ namespace TransitoModel
         public string CORREOELECTRONICO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VEHICULO> VEHICULO { get; set; }
+        public virtual ICollection<PROPIETARIO_VEHICULO> PROPIETARIO_VEHICULO { get; set; }
     }
 }

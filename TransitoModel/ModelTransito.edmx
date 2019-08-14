@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TransitoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PRUEBA1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CLASEVEHICULO">
           <Key>
             <PropertyRef Name="ID" />
@@ -29,6 +29,7 @@
           </Key>
           <Property Name="ID_FACTURA" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="ID_TRAMITE" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CREA_FECHA" Type="datetime" />
         </EntityType>
         <EntityType Name="LINEA">
           <Key>
@@ -64,6 +65,7 @@
           </Key>
           <Property Name="ID_PROPIETARIO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
           <Property Name="ID_VEHICULO" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CREA_FECHA" Type="datetime" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -211,7 +213,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TransitoModelStoreContainer">
+        <EntityContainer Name="PRUEBA1ModelStoreContainer">
           <EntitySet Name="CLASEVEHICULO" EntityType="Self.CLASEVEHICULO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FACTURA" EntityType="Self.FACTURA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FACTURA_TRAMITE" EntityType="Self.FACTURA_TRAMITE" Schema="dbo" store:Type="Tables" />
@@ -264,7 +266,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="TransitoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="PRUEBA1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CLASEVEHICULO">
           <Key>
             <PropertyRef Name="ID" />
@@ -282,8 +284,19 @@
           <Property Name="FECHA" Type="DateTime" Precision="3" />
           <Property Name="ID_VEHICULO" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="OBSERVACIONES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="FACTURA_TRAMITE" Relationship="Self.FK_FACTURA_TRAMITE_FACTURA" FromRole="FACTURA" ToRole="FACTURA_TRAMITE" />
           <NavigationProperty Name="VEHICULO" Relationship="Self.FK_FACTURA_VEHICULO" FromRole="FACTURA" ToRole="VEHICULO" />
-          <NavigationProperty Name="TRAMITE" Relationship="Self.FACTURA_TRAMITE" FromRole="FACTURA" ToRole="TRAMITE" />
+        </EntityType>
+        <EntityType Name="FACTURA_TRAMITE">
+          <Key>
+            <PropertyRef Name="ID_FACTURA" />
+            <PropertyRef Name="ID_TRAMITE" />
+          </Key>
+          <Property Name="ID_FACTURA" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_TRAMITE" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CREA_FECHA" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="FACTURA" Relationship="Self.FK_FACTURA_TRAMITE_FACTURA" FromRole="FACTURA_TRAMITE" ToRole="FACTURA" />
+          <NavigationProperty Name="TRAMITE" Relationship="Self.FK_FACTURA_TRAMITE_TRAMITE" FromRole="FACTURA_TRAMITE" ToRole="TRAMITE" />
         </EntityType>
         <EntityType Name="LINEA">
           <Key>
@@ -314,7 +327,18 @@
           <Property Name="DIRECCION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TELEFONO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CORREOELECTRONICO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="VEHICULO" Relationship="Self.PROPIETARIO_VEHICULO" FromRole="PROPIETARIO" ToRole="VEHICULO" />
+          <NavigationProperty Name="PROPIETARIO_VEHICULO" Relationship="Self.FK_PROPIETARIO_VEHICULO_PROPIETARIO" FromRole="PROPIETARIO" ToRole="PROPIETARIO_VEHICULO" />
+        </EntityType>
+        <EntityType Name="PROPIETARIO_VEHICULO">
+          <Key>
+            <PropertyRef Name="ID_PROPIETARIO" />
+            <PropertyRef Name="ID_VEHICULO" />
+          </Key>
+          <Property Name="ID_PROPIETARIO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ID_VEHICULO" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CREA_FECHA" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PROPIETARIO" Relationship="Self.FK_PROPIETARIO_VEHICULO_PROPIETARIO" FromRole="PROPIETARIO_VEHICULO" ToRole="PROPIETARIO" />
+          <NavigationProperty Name="VEHICULO" Relationship="Self.FK_PROPIETARIO_VEHICULO_VEHICULO" FromRole="PROPIETARIO_VEHICULO" ToRole="VEHICULO" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -341,7 +365,7 @@
           <Property Name="ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="VALOR" Type="Double" />
-          <NavigationProperty Name="FACTURA" Relationship="Self.FACTURA_TRAMITE" FromRole="TRAMITE" ToRole="FACTURA" />
+          <NavigationProperty Name="FACTURA_TRAMITE" Relationship="Self.FK_FACTURA_TRAMITE_TRAMITE" FromRole="TRAMITE" ToRole="FACTURA_TRAMITE" />
         </EntityType>
         <EntityType Name="VEHICULO">
           <Key>
@@ -358,8 +382,8 @@
           <NavigationProperty Name="CLASEVEHICULO" Relationship="Self.FK_VEHICULO_CLASEVEHICULO" FromRole="VEHICULO" ToRole="CLASEVEHICULO" />
           <NavigationProperty Name="FACTURA" Relationship="Self.FK_FACTURA_VEHICULO" FromRole="VEHICULO" ToRole="FACTURA" />
           <NavigationProperty Name="LINEA" Relationship="Self.FK_VEHICULO_LINEA" FromRole="VEHICULO" ToRole="LINEA" />
+          <NavigationProperty Name="PROPIETARIO_VEHICULO" Relationship="Self.FK_PROPIETARIO_VEHICULO_VEHICULO" FromRole="VEHICULO" ToRole="PROPIETARIO_VEHICULO" />
           <NavigationProperty Name="TIPOSERVICIO" Relationship="Self.FK_VEHICULO_TIPOSERVICIO" FromRole="VEHICULO" ToRole="TIPOSERVICIO" />
-          <NavigationProperty Name="PROPIETARIO" Relationship="Self.PROPIETARIO_VEHICULO" FromRole="VEHICULO" ToRole="PROPIETARIO" />
         </EntityType>
         <Association Name="FK_VEHICULO_CLASEVEHICULO">
           <End Role="CLASEVEHICULO" Type="Self.CLASEVEHICULO" Multiplicity="0..1" />
@@ -373,6 +397,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_FACTURA_TRAMITE_FACTURA">
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="1" />
+          <End Role="FACTURA_TRAMITE" Type="Self.FACTURA_TRAMITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACTURA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FACTURA_TRAMITE">
+              <PropertyRef Name="ID_FACTURA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_FACTURA_VEHICULO">
           <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="0..1" />
           <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
@@ -382,6 +418,18 @@
             </Principal>
             <Dependent Role="FACTURA">
               <PropertyRef Name="ID_VEHICULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FACTURA_TRAMITE_TRAMITE">
+          <End Role="TRAMITE" Type="Self.TRAMITE" Multiplicity="1" />
+          <End Role="FACTURA_TRAMITE" Type="Self.FACTURA_TRAMITE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TRAMITE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FACTURA_TRAMITE">
+              <PropertyRef Name="ID_TRAMITE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -409,6 +457,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_PROPIETARIO_VEHICULO_PROPIETARIO">
+          <End Role="PROPIETARIO" Type="Self.PROPIETARIO" Multiplicity="1" />
+          <End Role="PROPIETARIO_VEHICULO" Type="Self.PROPIETARIO_VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROPIETARIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PROPIETARIO_VEHICULO">
+              <PropertyRef Name="ID_PROPIETARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PROPIETARIO_VEHICULO_VEHICULO">
+          <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="1" />
+          <End Role="PROPIETARIO_VEHICULO" Type="Self.PROPIETARIO_VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VEHICULO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PROPIETARIO_VEHICULO">
+              <PropertyRef Name="ID_VEHICULO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_VEHICULO_TIPOSERVICIO">
           <End Role="TIPOSERVICIO" Type="Self.TIPOSERVICIO" Multiplicity="0..1" />
           <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="*" />
@@ -421,20 +493,14 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FACTURA_TRAMITE">
-          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="*" />
-          <End Role="TRAMITE" Type="Self.TRAMITE" Multiplicity="*" />
-        </Association>
-        <Association Name="PROPIETARIO_VEHICULO">
-          <End Role="PROPIETARIO" Type="Self.PROPIETARIO" Multiplicity="*" />
-          <End Role="VEHICULO" Type="Self.VEHICULO" Multiplicity="*" />
-        </Association>
-        <EntityContainer Name="PRUEBA1Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PRUEBA1Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CLASEVEHICULO" EntityType="Self.CLASEVEHICULO" />
           <EntitySet Name="FACTURA" EntityType="Self.FACTURA" />
+          <EntitySet Name="FACTURA_TRAMITE" EntityType="Self.FACTURA_TRAMITE" />
           <EntitySet Name="LINEA" EntityType="Self.LINEA" />
           <EntitySet Name="MARCA" EntityType="Self.MARCA" />
           <EntitySet Name="PROPIETARIO" EntityType="Self.PROPIETARIO" />
+          <EntitySet Name="PROPIETARIO_VEHICULO" EntityType="Self.PROPIETARIO_VEHICULO" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="TIPOSERVICIO" EntityType="Self.TIPOSERVICIO" />
           <EntitySet Name="TRAMITE" EntityType="Self.TRAMITE" />
@@ -443,9 +509,17 @@
             <End Role="CLASEVEHICULO" EntitySet="CLASEVEHICULO" />
             <End Role="VEHICULO" EntitySet="VEHICULO" />
           </AssociationSet>
+          <AssociationSet Name="FK_FACTURA_TRAMITE_FACTURA" Association="Self.FK_FACTURA_TRAMITE_FACTURA">
+            <End Role="FACTURA" EntitySet="FACTURA" />
+            <End Role="FACTURA_TRAMITE" EntitySet="FACTURA_TRAMITE" />
+          </AssociationSet>
           <AssociationSet Name="FK_FACTURA_VEHICULO" Association="Self.FK_FACTURA_VEHICULO">
             <End Role="VEHICULO" EntitySet="VEHICULO" />
             <End Role="FACTURA" EntitySet="FACTURA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FACTURA_TRAMITE_TRAMITE" Association="Self.FK_FACTURA_TRAMITE_TRAMITE">
+            <End Role="TRAMITE" EntitySet="TRAMITE" />
+            <End Role="FACTURA_TRAMITE" EntitySet="FACTURA_TRAMITE" />
           </AssociationSet>
           <AssociationSet Name="FK_LINEA_MARCA" Association="Self.FK_LINEA_MARCA">
             <End Role="MARCA" EntitySet="MARCA" />
@@ -455,16 +529,16 @@
             <End Role="LINEA" EntitySet="LINEA" />
             <End Role="VEHICULO" EntitySet="VEHICULO" />
           </AssociationSet>
+          <AssociationSet Name="FK_PROPIETARIO_VEHICULO_PROPIETARIO" Association="Self.FK_PROPIETARIO_VEHICULO_PROPIETARIO">
+            <End Role="PROPIETARIO" EntitySet="PROPIETARIO" />
+            <End Role="PROPIETARIO_VEHICULO" EntitySet="PROPIETARIO_VEHICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PROPIETARIO_VEHICULO_VEHICULO" Association="Self.FK_PROPIETARIO_VEHICULO_VEHICULO">
+            <End Role="VEHICULO" EntitySet="VEHICULO" />
+            <End Role="PROPIETARIO_VEHICULO" EntitySet="PROPIETARIO_VEHICULO" />
+          </AssociationSet>
           <AssociationSet Name="FK_VEHICULO_TIPOSERVICIO" Association="Self.FK_VEHICULO_TIPOSERVICIO">
             <End Role="TIPOSERVICIO" EntitySet="TIPOSERVICIO" />
-            <End Role="VEHICULO" EntitySet="VEHICULO" />
-          </AssociationSet>
-          <AssociationSet Name="FACTURA_TRAMITE" Association="Self.FACTURA_TRAMITE">
-            <End Role="FACTURA" EntitySet="FACTURA" />
-            <End Role="TRAMITE" EntitySet="TRAMITE" />
-          </AssociationSet>
-          <AssociationSet Name="PROPIETARIO_VEHICULO" Association="Self.PROPIETARIO_VEHICULO">
-            <End Role="PROPIETARIO" EntitySet="PROPIETARIO" />
             <End Role="VEHICULO" EntitySet="VEHICULO" />
           </AssociationSet>
         </EntityContainer>
@@ -473,9 +547,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TransitoModelStoreContainer" CdmEntityContainer="PRUEBA1Entities">
+        <EntityContainerMapping StorageEntityContainer="PRUEBA1ModelStoreContainer" CdmEntityContainer="PRUEBA1Entities1">
           <EntitySetMapping Name="CLASEVEHICULO">
-            <EntityTypeMapping TypeName="TransitoModel.CLASEVEHICULO">
+            <EntityTypeMapping TypeName="PRUEBA1Model.CLASEVEHICULO">
               <MappingFragment StoreEntitySet="CLASEVEHICULO">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -483,7 +557,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FACTURA">
-            <EntityTypeMapping TypeName="TransitoModel.FACTURA">
+            <EntityTypeMapping TypeName="PRUEBA1Model.FACTURA">
               <MappingFragment StoreEntitySet="FACTURA">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NUMERO" ColumnName="NUMERO" />
@@ -493,8 +567,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="FACTURA_TRAMITE">
+            <EntityTypeMapping TypeName="PRUEBA1Model.FACTURA_TRAMITE">
+              <MappingFragment StoreEntitySet="FACTURA_TRAMITE">
+                <ScalarProperty Name="ID_FACTURA" ColumnName="ID_FACTURA" />
+                <ScalarProperty Name="ID_TRAMITE" ColumnName="ID_TRAMITE" />
+                <ScalarProperty Name="CREA_FECHA" ColumnName="CREA_FECHA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="LINEA">
-            <EntityTypeMapping TypeName="TransitoModel.LINEA">
+            <EntityTypeMapping TypeName="PRUEBA1Model.LINEA">
               <MappingFragment StoreEntitySet="LINEA">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -503,7 +586,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MARCA">
-            <EntityTypeMapping TypeName="TransitoModel.MARCA">
+            <EntityTypeMapping TypeName="PRUEBA1Model.MARCA">
               <MappingFragment StoreEntitySet="MARCA">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -511,7 +594,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PROPIETARIO">
-            <EntityTypeMapping TypeName="TransitoModel.PROPIETARIO">
+            <EntityTypeMapping TypeName="PRUEBA1Model.PROPIETARIO">
               <MappingFragment StoreEntitySet="PROPIETARIO">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NUMEROIDENTIFICACION" ColumnName="NUMEROIDENTIFICACION" />
@@ -523,8 +606,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PROPIETARIO_VEHICULO">
+            <EntityTypeMapping TypeName="PRUEBA1Model.PROPIETARIO_VEHICULO">
+              <MappingFragment StoreEntitySet="PROPIETARIO_VEHICULO">
+                <ScalarProperty Name="ID_PROPIETARIO" ColumnName="ID_PROPIETARIO" />
+                <ScalarProperty Name="ID_VEHICULO" ColumnName="ID_VEHICULO" />
+                <ScalarProperty Name="CREA_FECHA" ColumnName="CREA_FECHA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="TransitoModel.sysdiagrams">
+            <EntityTypeMapping TypeName="PRUEBA1Model.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -535,7 +627,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TIPOSERVICIO">
-            <EntityTypeMapping TypeName="TransitoModel.TIPOSERVICIO">
+            <EntityTypeMapping TypeName="PRUEBA1Model.TIPOSERVICIO">
               <MappingFragment StoreEntitySet="TIPOSERVICIO">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -543,7 +635,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TRAMITE">
-            <EntityTypeMapping TypeName="TransitoModel.TRAMITE">
+            <EntityTypeMapping TypeName="PRUEBA1Model.TRAMITE">
               <MappingFragment StoreEntitySet="TRAMITE">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
@@ -552,7 +644,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VEHICULO">
-            <EntityTypeMapping TypeName="TransitoModel.VEHICULO">
+            <EntityTypeMapping TypeName="PRUEBA1Model.VEHICULO">
               <MappingFragment StoreEntitySet="VEHICULO">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="PLACA" ColumnName="PLACA" />
@@ -565,22 +657,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="FACTURA_TRAMITE" TypeName="TransitoModel.FACTURA_TRAMITE" StoreEntitySet="FACTURA_TRAMITE">
-            <EndProperty Name="FACTURA">
-              <ScalarProperty Name="ID" ColumnName="ID_FACTURA" />
-            </EndProperty>
-            <EndProperty Name="TRAMITE">
-              <ScalarProperty Name="ID" ColumnName="ID_TRAMITE" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="PROPIETARIO_VEHICULO" TypeName="TransitoModel.PROPIETARIO_VEHICULO" StoreEntitySet="PROPIETARIO_VEHICULO">
-            <EndProperty Name="PROPIETARIO">
-              <ScalarProperty Name="ID" ColumnName="ID_PROPIETARIO" />
-            </EndProperty>
-            <EndProperty Name="VEHICULO">
-              <ScalarProperty Name="ID" ColumnName="ID_VEHICULO" />
-            </EndProperty>
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

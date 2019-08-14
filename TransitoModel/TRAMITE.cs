@@ -17,7 +17,7 @@ namespace TransitoModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TRAMITE()
         {
-            this.FACTURA = new HashSet<FACTURA>();
+            this.FACTURA_TRAMITE = new HashSet<FACTURA_TRAMITE>();
         }
     
         public decimal ID { get; set; }
@@ -25,6 +25,6 @@ namespace TransitoModel
         public Nullable<double> VALOR { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<FACTURA> FACTURA { get; set; }
+        public virtual ICollection<FACTURA_TRAMITE> FACTURA_TRAMITE { get; set; }
     }
 }

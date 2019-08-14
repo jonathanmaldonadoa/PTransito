@@ -56,6 +56,9 @@
     <Compile Include="FACTURA.cs">
       <DependentUpon>ModelTransito.tt</DependentUpon>
     </Compile>
+    <Compile Include="FACTURA_TRAMITE.cs">
+      <DependentUpon>ModelTransito.tt</DependentUpon>
+    </Compile>
     <Compile Include="LINEA.cs">
       <DependentUpon>ModelTransito.tt</DependentUpon>
     </Compile>
@@ -82,6 +85,9 @@
     <Compile Include="PROPIETARIO.cs">
       <DependentUpon>ModelTransito.tt</DependentUpon>
     </Compile>
+    <Compile Include="PROPIETARIO_VEHICULO.cs">
+      <DependentUpon>ModelTransito.tt</DependentUpon>
+    </Compile>
     <Compile Include="sysdiagrams.cs">
       <DependentUpon>ModelTransito.tt</DependentUpon>
     </Compile>
@@ -96,32 +102,30 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="ModelTransito.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelTransito.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="ModelTransito.edmx.diagram">
       <DependentUpon>ModelTransito.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="ModelTransito.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelTransito.Context.cs</LastGenOutput>
       <DependentUpon>ModelTransito.edmx</DependentUpon>
+      <LastGenOutput>ModelTransito.Context.cs</LastGenOutput>
     </Content>
     <Content Include="ModelTransito.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelTransito.edmx</DependentUpon>
       <LastGenOutput>ModelTransito.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
