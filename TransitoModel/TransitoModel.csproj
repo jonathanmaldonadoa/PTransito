@@ -62,6 +62,7 @@
     <Compile Include="MARCA.cs">
       <DependentUpon>ModelTransito.tt</DependentUpon>
     </Compile>
+    <Compile Include="ModelAux\ModVehiculo.cs" />
     <Compile Include="ModelTransito.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -1,0 +1,89 @@
+﻿@model TransitoModel.ModelAux.ModVehiculo
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Index", "PROPIETARIOVEHICULO", FormMethod.Post))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <p>
+            Buscar placa:
+            @Html.EditorFor(model => model.PLACA, new { htmlAttributes = new { @class = "form-control" } })
+        </p>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Buscar" class="btn btn-default" />
+        </div>
+    </div>
+}
+<div class="row">
+
+
+    @if (Model.PROPIETARIO == null)
+    {
+        <h4>No hay vehiculos asociados</h4>
+    }
+    else
+    {
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PROPIETARIO.FirstOrDefault().NUMEROIDENTIFICACION)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PROPIETARIO.FirstOrDefault().NOMBRES)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PROPIETARIO.FirstOrDefault().APELLIDOS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PROPIETARIO.FirstOrDefault().CORREOELECTRONICO)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PROPIETARIO.FirstOrDefault().DIRECCION)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PROPIETARIO.FirstOrDefault().NUMEROIDENTIFICACION)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PROPIETARIO.FirstOrDefault().TELEFONO)
+                </th>
+            </tr>
+
+            @foreach (var item in Model.PROPIETARIO)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NUMEROIDENTIFICACION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOMBRES)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.APELLIDOS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CORREOELECTRONICO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DIRECCION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TELEFONO)
+                </td>
+                <td>
+                    @Html.ActionLink("eliminar", "Delete", "FactContratoCupsIngresoes", new { area = "ADOMFact", id = item.ID }, null)
+                </td>
+            </tr>
+            }
+
+        </table>
+    }
+</div>
