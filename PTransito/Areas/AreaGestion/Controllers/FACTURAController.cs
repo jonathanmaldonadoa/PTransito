@@ -1,7 +1,5 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using TransitoModel;
@@ -17,8 +15,7 @@ namespace PTransito.Areas.AreaGestion.Controllers
 
         public async Task<ActionResult> Index()
         {
-            var fACTURA = db.FACTURA.Include(f => f.VEHICULO);
-            return View(await fACTURA.ToListAsync());
+            return View(await sf.FacturaListar());
         }
 
         public async Task<ActionResult> Details(decimal id)
@@ -28,7 +25,7 @@ namespace PTransito.Areas.AreaGestion.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.total = aux.FACTURA_TRAMITE.Sum(x=>x.TRAMITE.VALOR);
+            ViewBag.total = aux.FACTURA_TRAMITE.Sum(x => x.TRAMITE.VALOR);
             ViewBag.ID = new SelectList(db.TRAMITE, "ID", "DESCRIPCION");
             return View(aux);
         }
@@ -57,7 +54,7 @@ namespace PTransito.Areas.AreaGestion.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> AgregarTramite(ModFactura m)
         {
-            if(await sf.AgregarTramite(m))
+            if (await sf.AgregarTramite(m))
             {
                 ViewBag.ID = new SelectList(db.TRAMITE, "ID", "DESCRIPCION");
                 return RedirectToAction("Details", new { id = m.FACTURA.ID });
@@ -67,8 +64,6 @@ namespace PTransito.Areas.AreaGestion.Controllers
                 ViewBag.ID = new SelectList(db.TRAMITE, "ID", "DESCRIPCION");
                 return RedirectToAction("Details", new { id = m.FACTURA.ID });
             }
-
-            
         }
 
         [HttpPost]
@@ -78,7 +73,7 @@ namespace PTransito.Areas.AreaGestion.Controllers
             if (ModelState.IsValid)
             {
                 decimal aux = await sf.CrearFactura(m);
-                if (aux>0)
+                if (aux > 0)
                     return RedirectToAction("Details", new { id = aux });
             }
             return View("Buscar");

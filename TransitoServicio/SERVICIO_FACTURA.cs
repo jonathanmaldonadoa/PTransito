@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,6 +25,8 @@ namespace TransitoServicio
             }
             return 0;
         }
+
+        
 
         public async Task<bool> AgregarTramite(ModFactura m)
         {
@@ -79,6 +82,11 @@ namespace TransitoServicio
             aux.FACTURA_TRAMITE = fACTURA.FACTURA_TRAMITE;
 
             return aux;
+        }
+        public async Task<List<FACTURA>> FacturaListar()
+        {
+            var fACTURA = db.FACTURA.Include(f => f.VEHICULO);
+            return await fACTURA.ToListAsync();
         }
 
     }
